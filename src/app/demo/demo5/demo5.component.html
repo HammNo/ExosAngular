@@ -1,0 +1,6 @@
+<h3>Services et injection</h3>
+
+<p>Etat de connexion : {{localIsAuth}}</p>
+
+<button (click)="connect()" *ngIf="!localIsAuth">Se connecter</button>
+<button (click)="disconnect()" *ngIf="localIsAuth">Se déconnecter</button>

@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let lk of links;">
+    <a (click)="toggleSelected(lk)" (click)="toggleChildVisible(lk)" [routerLink]="lk.url" [ngClass]="{'selected' : lk.selected}">{{lk.title}}</a>
+    <ul class="subLk" *ngIf="lk.isChildrenVisible && lk.children">
+      <li *ngFor="let sbLk of lk.children">
+        <a (click)="toggleSelected(sbLk)" [routerLink]="sbLk.url" [ngClass]="{'selected' : sbLk.selected}">{{sbLk.title}}</a>
+      </li>
+    </ul>
+  </li>
+</ul>

@@ -1,0 +1,12 @@
+<h3>Bindings</h3>
+<p>Hello {{ name }}</p>
+<!-- Binding one way : Lecture de propriété -->
+
+<input type="text" [(ngModel)]="name">
+<!-- Binding two ways : Lecture / écriture de propriété en direct -->
+
+<br />
+<button (click)="changeName('test')" [disabled]="name=='test'">Changer nom</button>
+<!-- Event binding -->
+<!-- Attribute binding => [attribut]="expression booleenne" -->
+

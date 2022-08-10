@@ -1,0 +1,11 @@
+<div style="border : black 1px solid;">
+  <h2>Contenu de l'enfant</h2>
+  <p>{{fromParent}} - {{numberFromParent}}</p>
+
+  <hr />
+  <ng-content></ng-content>
+  <hr />
+  <h4>Bouton demo Output</h4>
+  <button (click)="sendMessage('Message numéro 1')">Bouton 1</button>
+  <button (click)="sendMessage('Le Gras c\'est la vie')">Bouton 2</button>
+  </div>

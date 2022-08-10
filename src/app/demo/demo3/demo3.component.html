@@ -1,0 +1,28 @@
+<h3>Directives</h3>
+
+<h4>NgIf</h4>
+<div style="border : 1px black solid;">
+  <p style="background-color: lightgrey; cursor: pointer;" (click)="switchVisible()">
+    Cliquez ici
+  </p>
+  <p *ngIf="visible">Patati patata</p>
+</div>
+
+<hr />
+
+<h4>NgFor</h4>
+<ul>
+  <li appHighlightDirective *ngFor="let s of list; let i = index; let ev = even;">
+    {{i}} - <span [ngClass]="{'even' : ev}">{{s}}</span>
+  </li>
+</ul>
+
+<hr />
+
+<input [(ngModel)]="val">
+<div [ngSwitch]="val">
+  <p *ngSwitchCase="1">Cas 1</p>
+  <p *ngSwitchCase="2">Cas 2</p>
+  <p *ngSwitchCase="3">Cas 3</p>
+  <p *ngSwitchDefault>Entrez 1, 2 ou 3</p>
+</div>

@@ -1,0 +1,24 @@
+<h3>Pipes</h3>
+
+<p>Valeur de mon string : {{prop1}}</p>
+<p>{{prop1 | uppercase}}</p>
+<p>{{prop1 | lowercase}}</p>
+<p>{{prop1 | titlecase}}</p>
+
+<hr />
+
+<p>Valeur de mon number : {{prop2}}</p>
+<p>{{prop2 | number : '3.1-3'}}</p>
+<p>{{prop2 | currency : 'USD'}}</p>
+
+<hr />
+
+<p>Date : {{prop3}}</p>
+<p>{{prop3 | date : 'dd MM yyyy'}}</p>
+<p>{{prop3 | date : 'dd:MM:yyyy'}}</p>
+<p>{{prop3 | date : 'HH:mm:ss'}}</p>
+
+<hr/>
+
+<p>Valeur en euro : {{eur}}</p>
+<p>Valeur en bitcoin : {{eur | eurotobt}}</p>

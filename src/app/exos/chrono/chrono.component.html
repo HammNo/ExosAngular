@@ -1,0 +1,7 @@
+<h3>Chronomètre</h3>
+
+<p>{{time | chrono}}</p>
+
+<button (click)="start()" [disabled]="timer">Start</button> &nbsp;
+<button (click)="pause()" [disabled]="!timer">Pause</button> &nbsp;
+<button (click)="reset()" [disabled]="time.getSeconds() <= 0">Reset</button>

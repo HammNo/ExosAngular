@@ -1,0 +1,11 @@
+&nbsp; <button (click)="addArticle(currentArt)">Ajouter</button>
+
+<ul>
+  <li *ngFor="let article of articles;">
+    {{(article)}} &nbsp;<button style="color:red;" (click)="deleteArticle(article)">X</button>
+  </li>
+</ul>
+
+
+<ng-content></ng-content>
+

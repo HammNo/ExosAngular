@@ -1,0 +1,14 @@
+
+
+<input [(ngModel)]="currentArticle"/>
+&nbsp; <button (click)="add()">Ajouter</button>
+
+<ul>
+  <li *ngFor="let article of getBag();">
+    {{(article.name)}} [{{article.quantity}}]
+    &nbsp;
+    <button style="color:green;" (click)="addQuant(article)">+</button>
+    <button style="color:blue;" (click)="reduceQuant(article)">-</button>
+    <button style="color:red;" (click)="delete(article)">X</button>
+  </li>
+</ul>
