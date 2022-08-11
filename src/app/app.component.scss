@@ -1,9 +1,13 @@
 
 .content{
+  padding-top: 25px;
   padding-left: 15px;
   padding-right: 15px;
   width: 80%;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .main{

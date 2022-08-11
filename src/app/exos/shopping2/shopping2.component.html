@@ -1,14 +1,32 @@
-
-
-<input [(ngModel)]="currentArticle"/>
+<input [(ngModel)]="currentAName" placeholder="nom"/>
+<input [(ngModel)]="currentAPrice" placeholder="prix"/>
 &nbsp; <button (click)="add()">Ajouter</button>
 
-<ul>
-  <li *ngFor="let article of getBag();">
-    {{(article.name)}} [{{article.quantity}}]
-    &nbsp;
-    <button style="color:green;" (click)="addQuant(article)">+</button>
-    <button style="color:blue;" (click)="reduceQuant(article)">-</button>
-    <button style="color:red;" (click)="delete(article)">X</button>
-  </li>
-</ul>
+<br>
+<br>
+<table>
+  <tr>
+    <td>
+      Article
+    </td>
+    <td>
+      Quantité
+    </td>
+    <td>
+      Actions
+    </td>
+  </tr>
+  <tr *ngFor="let article of getBag();">
+    <td>
+      {{(article.name)}}
+    </td>
+    <td>
+      {{article.quantity}}
+    </td>
+    <td>
+      <button style="color:green;" (click)="addQuant(article)">+</button>
+      <button style="color:blue;" (click)="reduceQuant(article)">-</button>
+      <button style="color:red;" (click)="delete(article)">X</button>
+    </td>
+  </tr>
+</table>

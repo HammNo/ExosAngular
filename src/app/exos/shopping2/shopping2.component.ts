@@ -8,7 +8,8 @@ import { article, BagManagementService } from './bag-management.service';
 })
 export class Shopping2Component implements OnInit {
 
-  currentArticle : string = "";
+  currentAName : string = "";
+  currentAPrice : string = "";
 
   constructor(
     private bagService : BagManagementService
@@ -18,7 +19,7 @@ export class Shopping2Component implements OnInit {
   }
 
   add(){
-    this.bagService.addArticle(this.currentArticle);
+    this.bagService.addArticle(this.currentAName);
   }
 
   getBag(): article[] {
