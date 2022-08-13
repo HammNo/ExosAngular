@@ -1,13 +1,17 @@
 <input [(ngModel)]="currentAName" placeholder="nom"/>
+&nbsp;
 <input [(ngModel)]="currentAPrice" placeholder="prix"/>
 &nbsp; <button (click)="add()">Ajouter</button>
 
 <br>
 <br>
-<table>
+<table class="fixed">
   <tr>
     <td>
       Article
+    </td>
+    <td>
+      Prix
     </td>
     <td>
       Quantité
@@ -18,7 +22,10 @@
   </tr>
   <tr *ngFor="let article of getBag();">
     <td>
-      {{(article.name)}}
+      {{article.name}}
+    </td>
+    <td>
+      {{article.price | currency : 'EUR'}}
     </td>
     <td>
       {{article.quantity}}

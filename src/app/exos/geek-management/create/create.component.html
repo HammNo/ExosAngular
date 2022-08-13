@@ -1,0 +1,82 @@
+<h3>Création de geek</h3>
+
+<h4>Identité</h4>
+<form [formGroup]="geekForm" (ngSubmit)="validForm()">
+  <span class="p-float-label">
+    <label for="float-input">Nom</label>
+    <input type="text" formControlName="name" pInputText />
+  </span>
+  <span class="p-float-label">
+    &nbsp;
+    <span *ngIf="geekForm.controls['name'].invalid && geekForm.controls['name'].touched" style="color : red;">
+      Champ requis
+    </span>
+  </span>
+  <br>
+  <!-- <p *ngIf="geekForm.controls['name'].invalid && geekForm.controls['name'].touched" style="color : red;">
+  </p> -->
+  <span class="p-float-label">
+    <label for="float-input">Date de naissance</label>
+    <input type="date" formControlName="birthDate" pInputText />
+  </span>
+  <span class="p-float-label">
+    &nbsp;
+    <span *ngIf="geekForm.controls['birthDate'].invalid && geekForm.controls['birthDate'].touched" style="color : red;">
+      <span *ngIf="!geekForm.controls['birthDate'].errors">
+
+        Champ requis
+      </span>
+      <span *ngIf="geekForm.controls['birthDate'].errors">
+        {{geekForm.controls['birthDate'].errors['ageError']}}
+      </span>
+    </span>
+  </span>
+  <br>
+  <span class="p-float-label">
+    <label for="float-input">Email</label>
+    <input type="text" formControlName="email" pInputText />
+  </span>
+  <span class="p-float-label">
+    &nbsp;
+    <span *ngIf="geekForm.controls['email'].invalid && geekForm.controls['email'].touched" style="color : red;">
+      Champ requis (exemple@mail)
+    </span>
+  </span>
+  <br>
+  <span class="p-float-label">
+    <label for="float-input">Avatar</label>
+    <input type="URL" formControlName="avatar" placeholder="Insérez l'url de l'image">
+  </span>
+  <br>
+  <span class="p-float-label">
+    <img *ngIf="geekForm.value['avatar']" [src]="geekForm.value['avatar']"  alt="Aperçu de l'avatar" width="70">
+  </span>
+  <br>
+  <hr />
+  <h4>
+    Film(s) favori(s)
+    <br>
+    <br>
+    <button type="button" style="width: 35px; height: 35px;" (click)="addMovie()"
+      class="p-element p-button-rounded p-button-icon-only" pButton="" icon="pi pi-star-fill"></button>
+    &nbsp;
+    <button type="button" style="width: 35px; height: 35px;" (click)="removeMovie()"
+      class="p-element p-button-rounded p-button-icon-only p-button-danger" pButton="" icon="pi pi-minus"
+      [disabled]="getMoviesArray().length == 0"></button>
+  </h4>
+  <div formArrayName="movies">
+    <span *ngFor="let field of getMoviesArray().controls; let i = index">
+      <input type="movies" [formControlName]="i" pInputText />
+    </span>
+    <p>
+      &nbsp;
+      <span *ngIf="geekForm.controls['movies'].invalid && geekForm.controls['movies'].touched" style="color : red;">
+        Veuillez remplir tous les champs
+      </span>
+    </p>
+  </div>
+  <p>
+    <button type="submit" class="p-element p-button-success" pButton="" [disabled]="geekForm.invalid">Valider
+    </button>
+  </p>
+</form>

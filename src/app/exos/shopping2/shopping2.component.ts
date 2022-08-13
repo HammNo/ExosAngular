@@ -19,7 +19,8 @@ export class Shopping2Component implements OnInit {
   }
 
   add(){
-    this.bagService.addArticle(this.currentAName);
+    let price = parseFloat(this.currentAPrice);
+    if(!isNaN(price)) this.bagService.addArticle(this.currentAName, price);
   }
 
   getBag(): article[] {

@@ -1,0 +1,30 @@
+<h3>Liste de geeks</h3>
+
+<p-table [value]="localGkList" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Avatar</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Actions</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-geek>
+      <tr>
+          <td><img [src]="geek.avatar ? geek.avatar : 'https://wittmaackcpa.com/wp-content/uploads/2018/01/profile-placeholder.png'" [alt]="geek.name" width="70" class="shadow-4" /></td>
+          <td>{{geek.name}}</td>
+          <td>{{geek.email}}</td>
+          <td>
+            <button class="p-element p-button-rounded p-button-warning p-button-icon-only" pButton="" icon="pi pi-user-edit"></button>
+            &nbsp;
+            <p-confirmDialog [key]="geek.name" header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+            <button class="p-element p-button-rounded p-button-danger p-button-icon-only" (click)="removeGk(geek.name)" pButton="" icon="pi pi-trash"></button>
+          </td>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+          Il y a {{localGkList ? localGkList.length : 0 }} geek(s) enregistré(s).
+      </div>
+  </ng-template>
+</p-table>

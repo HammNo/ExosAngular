@@ -9,9 +9,9 @@ export class BagManagementService {
 
   constructor() { }
 
-  addArticle(art : string){
-    if(art!="" && !this.bag.find(a => a.name == art)){
-      this.bag.push(new article(art, 1));
+  addArticle(art : string, price : number){
+    if(art!="" && !this.bag.find(a => a.name == art) && price > 0){
+      this.bag.push(new article(art, 1, Math.round(price * 100) / 100));
     }
   }
 
@@ -35,9 +35,11 @@ export class article{
 
   name! : string;
   quantity! : number;
+  price! : number;
 
-  constructor(name : string, quantity : number) {
+  constructor(name : string, quantity : number, price : number) {
     this.name = name;
     this.quantity = quantity;
+    this.price = price;
    }
 }
